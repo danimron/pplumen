@@ -56,12 +56,12 @@ class UserController extends Controller
             return response()->json(['message' => 'login failed'], 401);
         }
 
-        $generateToken = bin2hex(random_bytes(40));
-        $user->update([
-            'token' => $generateToken
-        ]);
+        // $generateToken = bin2hex(random_bytes(40));
+        // $user->update([
+        //     'token' => $generateToken
+        // ]);
 
-        return response()->json($user);
+        return response()->json(['message' => 'success'], 201);
         // return $generateToken;
 
     }
