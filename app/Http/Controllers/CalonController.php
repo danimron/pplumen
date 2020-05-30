@@ -14,6 +14,12 @@ class CalonController extends Controller
         return response()->json($calon);
     }
 
+    public function show()
+    {
+        $calon = Calon::find($id);
+        return response()->json($calon);
+    }
+
     public function vote(Request $request, $id)
     {
         $calon = Calon::find($id);

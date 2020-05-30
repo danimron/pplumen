@@ -21,6 +21,7 @@ $router->post('/register', 'UserController@register');
 $router->post('/login', 'UserController@login');
 
 $router->get('/calon', 'CalonController@index');
+$router->get('/calon/{id}', 'CalonController@show');
 
 $router->put('/vote/{id}', 'CalonController@vote');
 $router->put('/udahvote/{id}', 'UserController@vote');

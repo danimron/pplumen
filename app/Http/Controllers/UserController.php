@@ -82,6 +82,6 @@ class UserController extends Controller
         $user->fill($data);
         $user["vote"] = true;
         $user->save();
-        return response()->json([$user]);
+        return response()->json(['message' => 'sudah vote']);
     }
 }
