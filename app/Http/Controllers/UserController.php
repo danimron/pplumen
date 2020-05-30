@@ -48,12 +48,12 @@ class UserController extends Controller
 
         $user = User::where('npm', $npm)->first();
         if(!$user){
-            return response()->json(['message' => 'login failed'], 401);
+            return response()->json(['message' => 'Akun tidak ditemukan'], 401);
         }
 
         $isValidPassword = Hash::check($password, $user->password);
         if(!$isValidPassword){
-            return response()->json(['message' => 'login failed'], 401);
+            return response()->json(['message' => 'Password salah'], 401);
         }
 
         // $generateToken = bin2hex(random_bytes(40));
@@ -64,5 +64,24 @@ class UserController extends Controller
         return response()->json(['message' => 'success'], 201);
         // return $generateToken;
 
+    }
+
+    public function vote(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'akun not found'], 404);
+        }
+
+        $this->validate($request, [
+            'vote' => 'bool'
+        ]);
+
+        $data = $request->all();
+        $user->fill($data);
+        $user["vote"] = true;
+        $user->save();
+        return response()->json([$user]);
     }
 }

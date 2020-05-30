@@ -19,3 +19,8 @@ $router->delete('/pengguna/{id}', 'PenggunaController@destroy');
 
 $router->post('/register', 'UserController@register');
 $router->post('/login', 'UserController@login');
+
+$router->get('/calon', 'CalonController@index');
+
+$router->put('/vote/{id}', 'CalonController@vote');
+$router->put('/udahvote/{id}', 'UserController@vote');

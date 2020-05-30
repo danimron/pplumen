@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateCalonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('calon', function (Blueprint $table) {
             $table->id();
+            $table->integer('no_urut');
             $table->string('npm');
             $table->string('nama');
-            $table->string('password');
-            $table->string('email');
-            $table->string('no_hp');
-            $table->boolean('vote');
-            $table->string('token')->nullable();
+            $table->string('foto');
+            $table->string('visi');
+            $table->string('misi');
+            $table->string('proker');
+            $table->integer('votes');
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('calon');
     }
 }
