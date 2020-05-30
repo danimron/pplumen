@@ -14,7 +14,7 @@ class CalonController extends Controller
         return response()->json($calon);
     }
 
-    public function show()
+    public function show($id)
     {
         $calon = Calon::find($id);
         return response()->json($calon);
