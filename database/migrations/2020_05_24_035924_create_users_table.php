@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('email');
             $table->string('no_hp');
-            $table->boolean('vote');
             $table->string('token')->nullable();
             $table->timestamps();
         });
